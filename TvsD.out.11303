@@ -1,0 +1,56 @@
+Simulation type = colibre
+Data type = HDF5
+Catalog type = P2C
+['colibre_0060.000.hdf5', 'colibre_0060.001.hdf5', 'colibre_0060.002.hdf5', 'colibre_0060.003.hdf5', 'colibre_0060.004.hdf5', 'colibre_0060.005.hdf5', 'colibre_0060.006.hdf5', 'colibre_0060.007.hdf5', 'colibre_0060.008.hdf5', 'colibre_0060.009.hdf5', 'colibre_0060.010.hdf5', 'colibre_0060.011.hdf5', 'colibre_0060.012.hdf5', 'colibre_0060.013.hdf5', 'colibre_0060.014.hdf5', 'colibre_0060.015.hdf5']
+Loading...
+<HDF5 file "colibre_0060.000.hdf5" (mode r)>
+<HDF5 file "colibre_0060.001.hdf5" (mode r)>
+<HDF5 file "colibre_0060.002.hdf5" (mode r)>
+<HDF5 file "colibre_0060.003.hdf5" (mode r)>
+<HDF5 file "colibre_0060.004.hdf5" (mode r)>
+<HDF5 file "colibre_0060.005.hdf5" (mode r)>
+<HDF5 file "colibre_0060.006.hdf5" (mode r)>
+<HDF5 file "colibre_0060.007.hdf5" (mode r)>
+<HDF5 file "colibre_0060.008.hdf5" (mode r)>
+<HDF5 file "colibre_0060.009.hdf5" (mode r)>
+<HDF5 file "colibre_0060.010.hdf5" (mode r)>
+<HDF5 file "colibre_0060.011.hdf5" (mode r)>
+<HDF5 file "colibre_0060.012.hdf5" (mode r)>
+<HDF5 file "colibre_0060.013.hdf5" (mode r)>
+<HDF5 file "colibre_0060.014.hdf5" (mode r)>
+<HDF5 file "colibre_0060.015.hdf5" (mode r)>
+Number of particles: 422439573
+Plotting for particles in 0.0-1.0 virial radii
+Flagging particles...
+Kept 15 halos
+shape(selected) = (1, 1512440)
+Saving density and temperature to /data/titouan/COLIBRE/L0050N0752/z3p5/colibre_0060/
+Plotting...
+Simulation type = dalya
+Data type = HDF5
+Catalog type = P2C
+['snap_004.000.hdf5', 'snap_004.001.hdf5', 'snap_004.002.hdf5', 'snap_004.003.hdf5', 'snap_004.004.hdf5', 'snap_004.005.hdf5', 'snap_004.006.hdf5', 'snap_004.007.hdf5', 'snap_004.008.hdf5', 'snap_004.009.hdf5', 'snap_004.010.hdf5', 'snap_004.011.hdf5', 'snap_004.012.hdf5', 'snap_004.013.hdf5', 'snap_004.014.hdf5', 'snap_004.015.hdf5']
+Loading...
+<HDF5 file "snap_004.000.hdf5" (mode r)>
+<HDF5 file "snap_004.001.hdf5" (mode r)>
+<HDF5 file "snap_004.002.hdf5" (mode r)>
+<HDF5 file "snap_004.003.hdf5" (mode r)>
+<HDF5 file "snap_004.004.hdf5" (mode r)>
+<HDF5 file "snap_004.005.hdf5" (mode r)>
+<HDF5 file "snap_004.006.hdf5" (mode r)>
+<HDF5 file "snap_004.007.hdf5" (mode r)>
+<HDF5 file "snap_004.008.hdf5" (mode r)>
+<HDF5 file "snap_004.009.hdf5" (mode r)>
+<HDF5 file "snap_004.010.hdf5" (mode r)>
+<HDF5 file "snap_004.011.hdf5" (mode r)>
+<HDF5 file "snap_004.012.hdf5" (mode r)>
+<HDF5 file "snap_004.013.hdf5" (mode r)>
+<HDF5 file "snap_004.014.hdf5" (mode r)>
+<HDF5 file "snap_004.015.hdf5" (mode r)>
+Number of particles: 66064683
+Plotting for particles in 0.0-1.0 virial radii
+Flagging particles...
+Kept 11 halos
+shape(selected) = (1, 3752760)
+Saving density and temperature to /data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1p5_hydro_fire2_lvl7/Halo10/sftresh_cool_low_fb_boost/snapdir_004/
+Plotting...

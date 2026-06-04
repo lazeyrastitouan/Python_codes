@@ -1,0 +1,42 @@
+/home/titouan/codes/Python_codes/TvsD.py:124: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  pos  = concatenate((pos,array(f[ptype]['Coordinates']))) #kpc/h if dalya, mpc if colibre, mpc/h if eagle
+/home/titouan/codes/Python_codes/TvsD.py:126: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  mass = concatenate((mass,array(f[ptype]['Masses']))) #Msun/h if dalya, Msun if Colibre
+/home/titouan/codes/Python_codes/TvsD.py:129: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  dens = concatenate((dens,array(f[ptype]['Density'])))
+/home/titouan/codes/Python_codes/TvsD.py:174: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp = concatenate((temp,array(f[ptype]['Temperature'])))
+/home/titouan/codes/Python_codes/TvsD.py:124: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  pos  = concatenate((pos,array(f[ptype]['Coordinates']))) #kpc/h if dalya, mpc if colibre, mpc/h if eagle
+/home/titouan/codes/Python_codes/TvsD.py:126: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  mass = concatenate((mass,array(f[ptype]['Masses']))) #Msun/h if dalya, Msun if Colibre
+/home/titouan/codes/Python_codes/TvsD.py:129: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  dens = concatenate((dens,array(f[ptype]['Density'])))
+/home/titouan/codes/Python_codes/TvsD.py:174: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp = concatenate((temp,array(f[ptype]['Temperature'])))
+Traceback (most recent call last):
+  File "/home/titouan/codes/Python_codes/TvsD.py", line 85, in <module>
+    h5files  = [f for f in os.listdir(snappath+"/") if os.path.isfile(os.path.join(snappath+"/", f)) and f[-4:] == 'hdf5' and (f[0:4] == 'snap' or f[0:7]=='colibre')]
+FileNotFoundError: [Errno 2] No such file or directory: '/data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1_hydro_fire2_lvl7/Halo1312/sftresh_cool_low_fb_boost/snapdir_001//'
+mv: cannot stat '/data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1p5_hydro_fire2_lvl7/Halo1312/sftresh_cool_low_fb_boost/snapdir_001/TvsD_in.pdf': No such file or directory
+Traceback (most recent call last):
+  File "/home/titouan/codes/Python_codes/TvsD.py", line 85, in <module>
+    h5files  = [f for f in os.listdir(snappath+"/") if os.path.isfile(os.path.join(snappath+"/", f)) and f[-4:] == 'hdf5' and (f[0:4] == 'snap' or f[0:7]=='colibre')]
+FileNotFoundError: [Errno 2] No such file or directory: '/data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1_hydro_fire2_lvl7/Halo1312/sftresh_cool_low_fb_boost/snapdir_001//'
+mv: cannot stat '/data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1p5_hydro_fire2_lvl7/Halo1312/sftresh_cool_low_fb_boost/snapdir_001/TvsD_in.pdf': No such file or directory
+/home/titouan/codes/Python_codes/TvsD.py:124: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  pos  = concatenate((pos,array(f[ptype]['Coordinates']))) #kpc/h if dalya, mpc if colibre, mpc/h if eagle
+/home/titouan/codes/Python_codes/TvsD.py:126: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  mass = concatenate((mass,array(f[ptype]['Masses']))) #Msun/h if dalya, Msun if Colibre
+/home/titouan/codes/Python_codes/TvsD.py:129: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  dens = concatenate((dens,array(f[ptype]['Density'])))
+/home/titouan/codes/Python_codes/TvsD.py:174: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp = concatenate((temp,array(f[ptype]['Temperature'])))
+/home/titouan/codes/Python_codes/TvsD.py:124: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  pos  = concatenate((pos,array(f[ptype]['Coordinates']))) #kpc/h if dalya, mpc if colibre, mpc/h if eagle
+/home/titouan/codes/Python_codes/TvsD.py:126: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  mass = concatenate((mass,array(f[ptype]['Masses']))) #Msun/h if dalya, Msun if Colibre
+/home/titouan/codes/Python_codes/TvsD.py:129: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  dens = concatenate((dens,array(f[ptype]['Density'])))
+/home/titouan/codes/Python_codes/TvsD.py:174: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp = concatenate((temp,array(f[ptype]['Temperature'])))

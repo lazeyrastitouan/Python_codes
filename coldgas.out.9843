@@ -1,0 +1,47 @@
+Simulation type = dalya
+Data type = HDF5
+Catalog type = P2C
+Loading...
+['snap_007.000.hdf5', 'snap_007.001.hdf5', 'snap_007.002.hdf5', 'snap_007.003.hdf5', 'snap_007.004.hdf5', 'snap_007.005.hdf5', 'snap_007.006.hdf5', 'snap_007.007.hdf5', 'snap_007.008.hdf5', 'snap_007.009.hdf5', 'snap_007.010.hdf5', 'snap_007.011.hdf5', 'snap_007.012.hdf5', 'snap_007.013.hdf5', 'snap_007.014.hdf5', 'snap_007.015.hdf5']
+<HDF5 file "snap_007.000.hdf5" (mode r)>
+<HDF5 file "snap_007.001.hdf5" (mode r)>
+<HDF5 file "snap_007.002.hdf5" (mode r)>
+<HDF5 file "snap_007.003.hdf5" (mode r)>
+<HDF5 file "snap_007.004.hdf5" (mode r)>
+<HDF5 file "snap_007.005.hdf5" (mode r)>
+<HDF5 file "snap_007.006.hdf5" (mode r)>
+<HDF5 file "snap_007.007.hdf5" (mode r)>
+<HDF5 file "snap_007.008.hdf5" (mode r)>
+<HDF5 file "snap_007.009.hdf5" (mode r)>
+<HDF5 file "snap_007.010.hdf5" (mode r)>
+<HDF5 file "snap_007.011.hdf5" (mode r)>
+<HDF5 file "snap_007.012.hdf5" (mode r)>
+<HDF5 file "snap_007.013.hdf5" (mode r)>
+<HDF5 file "snap_007.014.hdf5" (mode r)>
+<HDF5 file "snap_007.015.hdf5" (mode r)>
+['snap_002.000.hdf5', 'snap_002.001.hdf5', 'snap_002.002.hdf5', 'snap_002.003.hdf5', 'snap_002.004.hdf5', 'snap_002.005.hdf5', 'snap_002.006.hdf5', 'snap_002.007.hdf5', 'snap_002.008.hdf5', 'snap_002.009.hdf5', 'snap_002.010.hdf5', 'snap_002.011.hdf5', 'snap_002.012.hdf5', 'snap_002.013.hdf5', 'snap_002.014.hdf5', 'snap_002.015.hdf5']
+<HDF5 file "snap_002.000.hdf5" (mode r)>
+<HDF5 file "snap_002.001.hdf5" (mode r)>
+<HDF5 file "snap_002.002.hdf5" (mode r)>
+<HDF5 file "snap_002.003.hdf5" (mode r)>
+<HDF5 file "snap_002.004.hdf5" (mode r)>
+<HDF5 file "snap_002.005.hdf5" (mode r)>
+<HDF5 file "snap_002.006.hdf5" (mode r)>
+<HDF5 file "snap_002.007.hdf5" (mode r)>
+<HDF5 file "snap_002.008.hdf5" (mode r)>
+<HDF5 file "snap_002.009.hdf5" (mode r)>
+<HDF5 file "snap_002.010.hdf5" (mode r)>
+<HDF5 file "snap_002.011.hdf5" (mode r)>
+<HDF5 file "snap_002.012.hdf5" (mode r)>
+<HDF5 file "snap_002.013.hdf5" (mode r)>
+<HDF5 file "snap_002.014.hdf5" (mode r)>
+<HDF5 file "snap_002.015.hdf5" (mode r)>
+Number of gas particles: 86518025
+Got 8 halos
+Computing distances...
+Computing fV and fcold profiles...
+bin 50 - 160
+bin 160 - 250
+bin 250 - 350
+bin 350 - 700
+Saving profiles to /data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1p5_hydro_fire2_lvl7//fV_fcold_in_annulickpc_z3.0.npz

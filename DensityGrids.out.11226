@@ -1,0 +1,144 @@
+Tmin: 1000.0, Tmax: 100000.0
+Found 10 halos
+Loading...
+<HDF5 file "snap_004.000.hdf5" (mode r)>
+<HDF5 file "snap_004.001.hdf5" (mode r)>
+<HDF5 file "snap_004.002.hdf5" (mode r)>
+<HDF5 file "snap_004.003.hdf5" (mode r)>
+<HDF5 file "snap_004.004.hdf5" (mode r)>
+<HDF5 file "snap_004.005.hdf5" (mode r)>
+<HDF5 file "snap_004.006.hdf5" (mode r)>
+<HDF5 file "snap_004.007.hdf5" (mode r)>
+<HDF5 file "snap_004.008.hdf5" (mode r)>
+<HDF5 file "snap_004.009.hdf5" (mode r)>
+<HDF5 file "snap_004.010.hdf5" (mode r)>
+<HDF5 file "snap_004.011.hdf5" (mode r)>
+<HDF5 file "snap_004.012.hdf5" (mode r)>
+<HDF5 file "snap_004.013.hdf5" (mode r)>
+<HDF5 file "snap_004.014.hdf5" (mode r)>
+<HDF5 file "snap_004.015.hdf5" (mode r)>
+<HDF5 file "snap_001.000.hdf5" (mode r)>
+<HDF5 file "snap_001.001.hdf5" (mode r)>
+<HDF5 file "snap_001.002.hdf5" (mode r)>
+<HDF5 file "snap_001.003.hdf5" (mode r)>
+<HDF5 file "snap_001.004.hdf5" (mode r)>
+<HDF5 file "snap_001.005.hdf5" (mode r)>
+<HDF5 file "snap_001.006.hdf5" (mode r)>
+<HDF5 file "snap_001.007.hdf5" (mode r)>
+<HDF5 file "snap_001.008.hdf5" (mode r)>
+<HDF5 file "snap_001.009.hdf5" (mode r)>
+<HDF5 file "snap_001.010.hdf5" (mode r)>
+<HDF5 file "snap_001.011.hdf5" (mode r)>
+<HDF5 file "snap_001.012.hdf5" (mode r)>
+<HDF5 file "snap_001.013.hdf5" (mode r)>
+<HDF5 file "snap_001.014.hdf5" (mode r)>
+<HDF5 file "snap_001.015.hdf5" (mode r)>
+Keeping particles inside the CGM
+Kept 981410 particles
+Computing projected distances along X
+NGP assignment for each  halo
+Computing projected distances along Y
+NGP assignment for each  halo
+Computing projected distances along Z
+NGP assignment for each  halo
+Saving medians and stds to /data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1p5_hydro_fire2_lvl7/medians_stds_Mlow_12.0_Mhigh_12.5.npz
+Tmin: 1000.0, Tmax: 100000.0
+Found 12 halos
+Loading...
+<HDF5 file "colibre_0060.000.hdf5" (mode r)>
+<HDF5 file "colibre_0060.001.hdf5" (mode r)>
+<HDF5 file "colibre_0060.002.hdf5" (mode r)>
+<HDF5 file "colibre_0060.003.hdf5" (mode r)>
+<HDF5 file "colibre_0060.004.hdf5" (mode r)>
+<HDF5 file "colibre_0060.005.hdf5" (mode r)>
+<HDF5 file "colibre_0060.006.hdf5" (mode r)>
+<HDF5 file "colibre_0060.007.hdf5" (mode r)>
+<HDF5 file "colibre_0060.008.hdf5" (mode r)>
+<HDF5 file "colibre_0060.009.hdf5" (mode r)>
+<HDF5 file "colibre_0060.010.hdf5" (mode r)>
+<HDF5 file "colibre_0060.011.hdf5" (mode r)>
+<HDF5 file "colibre_0060.012.hdf5" (mode r)>
+<HDF5 file "colibre_0060.013.hdf5" (mode r)>
+<HDF5 file "colibre_0060.014.hdf5" (mode r)>
+<HDF5 file "colibre_0060.015.hdf5" (mode r)>
+Keeping particles inside the CGM
+Kept 497411 particles
+Computing projected distances along X
+NGP assignment for each  halo
+Computing projected distances along Y
+NGP assignment for each  halo
+Computing projected distances along Z
+NGP assignment for each  halo
+Saving medians and stds to /data/titouan/COLIBRE/L0050N0752/z3p5/colibre_0060/medians_stds_Mlow_12.0_Mhigh_12.5.npz
+Tmin: 1000.0, Tmax: 100000.0
+Found 5 halos
+Loading...
+<HDF5 file "snap_004.000.hdf5" (mode r)>
+<HDF5 file "snap_004.001.hdf5" (mode r)>
+<HDF5 file "snap_004.002.hdf5" (mode r)>
+<HDF5 file "snap_004.003.hdf5" (mode r)>
+<HDF5 file "snap_004.004.hdf5" (mode r)>
+<HDF5 file "snap_004.005.hdf5" (mode r)>
+<HDF5 file "snap_004.006.hdf5" (mode r)>
+<HDF5 file "snap_004.007.hdf5" (mode r)>
+<HDF5 file "snap_004.008.hdf5" (mode r)>
+<HDF5 file "snap_004.009.hdf5" (mode r)>
+<HDF5 file "snap_004.010.hdf5" (mode r)>
+<HDF5 file "snap_004.011.hdf5" (mode r)>
+<HDF5 file "snap_004.012.hdf5" (mode r)>
+<HDF5 file "snap_004.013.hdf5" (mode r)>
+<HDF5 file "snap_004.014.hdf5" (mode r)>
+<HDF5 file "snap_004.015.hdf5" (mode r)>
+<HDF5 file "snap_001.000.hdf5" (mode r)>
+<HDF5 file "snap_001.001.hdf5" (mode r)>
+<HDF5 file "snap_001.002.hdf5" (mode r)>
+<HDF5 file "snap_001.003.hdf5" (mode r)>
+<HDF5 file "snap_001.004.hdf5" (mode r)>
+<HDF5 file "snap_001.005.hdf5" (mode r)>
+<HDF5 file "snap_001.006.hdf5" (mode r)>
+<HDF5 file "snap_001.007.hdf5" (mode r)>
+<HDF5 file "snap_001.008.hdf5" (mode r)>
+<HDF5 file "snap_001.009.hdf5" (mode r)>
+<HDF5 file "snap_001.010.hdf5" (mode r)>
+<HDF5 file "snap_001.011.hdf5" (mode r)>
+<HDF5 file "snap_001.012.hdf5" (mode r)>
+<HDF5 file "snap_001.013.hdf5" (mode r)>
+<HDF5 file "snap_001.014.hdf5" (mode r)>
+<HDF5 file "snap_001.015.hdf5" (mode r)>
+Keeping particles inside the CGM
+Kept 806422 particles
+Computing projected distances along X
+NGP assignment for each  halo
+Computing projected distances along Y
+NGP assignment for each  halo
+Computing projected distances along Z
+NGP assignment for each  halo
+Saving medians and stds to /data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1p5_hydro_fire2_lvl7/medians_stds_Mlow_12.5_Mhigh_13.0.npz
+Tmin: 1000.0, Tmax: 100000.0
+Found 3 halos
+Loading...
+<HDF5 file "colibre_0060.000.hdf5" (mode r)>
+<HDF5 file "colibre_0060.001.hdf5" (mode r)>
+<HDF5 file "colibre_0060.002.hdf5" (mode r)>
+<HDF5 file "colibre_0060.003.hdf5" (mode r)>
+<HDF5 file "colibre_0060.004.hdf5" (mode r)>
+<HDF5 file "colibre_0060.005.hdf5" (mode r)>
+<HDF5 file "colibre_0060.006.hdf5" (mode r)>
+<HDF5 file "colibre_0060.007.hdf5" (mode r)>
+<HDF5 file "colibre_0060.008.hdf5" (mode r)>
+<HDF5 file "colibre_0060.009.hdf5" (mode r)>
+<HDF5 file "colibre_0060.010.hdf5" (mode r)>
+<HDF5 file "colibre_0060.011.hdf5" (mode r)>
+<HDF5 file "colibre_0060.012.hdf5" (mode r)>
+<HDF5 file "colibre_0060.013.hdf5" (mode r)>
+<HDF5 file "colibre_0060.014.hdf5" (mode r)>
+<HDF5 file "colibre_0060.015.hdf5" (mode r)>
+Keeping particles inside the CGM
+Kept 223297 particles
+Computing projected distances along X
+NGP assignment for each  halo
+Computing projected distances along Y
+NGP assignment for each  halo
+Computing projected distances along Z
+NGP assignment for each  halo
+Saving medians and stds to /data/titouan/COLIBRE/L0050N0752/z3p5/colibre_0060/medians_stds_Mlow_12.5_Mhigh_13.0.npz

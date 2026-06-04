@@ -1,0 +1,12 @@
+/home/titouan/codes/Python_codes/ColdGas.py:108: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  posG   = concatenate((posG,array(f['PartType0']['Coordinates'])/h+1e6*sim_i)) #ckpc, the +1e6*sim_i is to translate particles from the second box by 1cGpc to not associate them to halos of the first box
+/home/titouan/codes/Python_codes/ColdGas.py:109: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  posDM  = concatenate((posDM,array(f['PartType1']['Coordinates'])/h+1e6*sim_i)) #ckpc
+/home/titouan/codes/Python_codes/ColdGas.py:110: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  dens   = concatenate((dens,array(f['PartType0']['Density'])))
+/home/titouan/codes/Python_codes/ColdGas.py:111: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  massG  = concatenate((massG,array(f['PartType0']['Masses'])))
+/home/titouan/codes/Python_codes/ColdGas.py:112: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  massDM = concatenate((massDM,array(f['PartType1']['Masses'])))
+/home/titouan/codes/Python_codes/ColdGas.py:143: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp = concatenate((temp,array(f['PartType0']['Temperature'])))

@@ -1,0 +1,27 @@
+Simulation type = colibre
+Data type = HDF5
+Catalog type = P2C
+['colibre_0060.000.hdf5', 'colibre_0060.001.hdf5', 'colibre_0060.002.hdf5', 'colibre_0060.003.hdf5', 'colibre_0060.004.hdf5', 'colibre_0060.005.hdf5', 'colibre_0060.006.hdf5', 'colibre_0060.007.hdf5', 'colibre_0060.008.hdf5', 'colibre_0060.009.hdf5', 'colibre_0060.010.hdf5', 'colibre_0060.011.hdf5', 'colibre_0060.012.hdf5', 'colibre_0060.013.hdf5', 'colibre_0060.014.hdf5', 'colibre_0060.015.hdf5']
+Loading...
+<HDF5 file "colibre_0060.000.hdf5" (mode r)>
+<HDF5 file "colibre_0060.001.hdf5" (mode r)>
+<HDF5 file "colibre_0060.002.hdf5" (mode r)>
+<HDF5 file "colibre_0060.003.hdf5" (mode r)>
+<HDF5 file "colibre_0060.004.hdf5" (mode r)>
+<HDF5 file "colibre_0060.005.hdf5" (mode r)>
+<HDF5 file "colibre_0060.006.hdf5" (mode r)>
+<HDF5 file "colibre_0060.007.hdf5" (mode r)>
+<HDF5 file "colibre_0060.008.hdf5" (mode r)>
+<HDF5 file "colibre_0060.009.hdf5" (mode r)>
+<HDF5 file "colibre_0060.010.hdf5" (mode r)>
+<HDF5 file "colibre_0060.011.hdf5" (mode r)>
+<HDF5 file "colibre_0060.012.hdf5" (mode r)>
+<HDF5 file "colibre_0060.013.hdf5" (mode r)>
+<HDF5 file "colibre_0060.014.hdf5" (mode r)>
+<HDF5 file "colibre_0060.015.hdf5" (mode r)>
+Number of particles: 422439573
+Plotting for particles within 108.96000000000001-170.25 ckpc
+Flagging particles...
+Kept 12 halos
+shape(selected) = (1, 211043)
+Saving density and temperature to /data/titouan/COLIBRE/L0050N0752/z3p5/colibre_0060/

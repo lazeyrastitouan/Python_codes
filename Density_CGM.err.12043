@@ -1,0 +1,8 @@
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc_memory_optimized.py:102: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  pos_list.append(array(f[ptype]['Coordinates'])) #kpc/h if dalya, mpc/h if eagle, mpc if colibre
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc_memory_optimized.py:105: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  mass_list.append(array(f[ptype]['Masses'])) #Msun/h if dalya, Msun if Colibre
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc_memory_optimized.py:144: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  D     = array(f[ptype]['Densities'])
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc_memory_optimized.py:150: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp_list.append(array(f[ptype]['Temperatures']))

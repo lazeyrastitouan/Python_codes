@@ -1,0 +1,2 @@
+/home/titouan/codes/Python_codes/dust.py:14: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  dustt = array(sim['PartType0/TotalDustMassFractions'])

@@ -1,0 +1,6 @@
+/home/titouan/codes/Python_codes/TvsD_dev.py:124: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  pos  = concatenate((pos,array(f[ptype]['Coordinates']))) #kpc/h if dalya, mpc if colibre, mpc/h if eagle
+/home/titouan/codes/Python_codes/TvsD_dev.py:127: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  dens = concatenate((dens,array(f[ptype]['Density'])))
+/home/titouan/codes/Python_codes/TvsD_dev.py:172: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp = concatenate((temp,array(f[ptype]['Temperature'])))

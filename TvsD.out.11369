@@ -1,0 +1,22 @@
+Simulation type = hello
+Data type = HDF5
+Catalog type = P2C
+['snap_g9.20e12.00128.000.hdf5']
+Loading...
+<HDF5 file "snap_g9.20e12.00128.000.hdf5" (mode r)>
+Number of particles: 5210898
+Plotting for particles in 0.0-1.0 virial radii
+Flagging particles...
+Kept 2 halos
+shape(selected) = (1, 2029950)
+Saving density and temperature to /data/titouan/HELLO/CDM/g9.20e12/
+Plotting...
+Simulation type = hello
+Data type = HDF5
+Catalog type = P2C
+['snap_g9.20e12.00128.000.hdf5']
+Loading...
+<HDF5 file "snap_g9.20e12.00128.000.hdf5" (mode r)>
+Number of particles: 5210898
+Plotting for particles within 107.3746763933422-167.77293186459718 ckpc
+Flagging particles...

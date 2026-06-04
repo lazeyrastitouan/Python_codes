@@ -1,0 +1,16 @@
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc.py:101: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  pos  = concatenate((pos,array(f[ptype]['Coordinates']))) #kpc/h if dalya, mpc/h if eagle, mpc if colibre
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc.py:104: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  mass = concatenate((mass,array(f[ptype]['Masses']))) #Msun/h if dalya, Msun if Colibre
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc.py:108: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  dens = concatenate((dens,array(f[ptype]['Density'])))
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc.py:110: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp = concatenate((temp,array(f[ptype]['Temperature'])))
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc.py:101: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  pos  = concatenate((pos,array(f[ptype]['Coordinates']))) #kpc/h if dalya, mpc/h if eagle, mpc if colibre
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc.py:104: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  mass = concatenate((mass,array(f[ptype]['Masses']))) #Msun/h if dalya, Msun if Colibre
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc.py:108: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  dens = concatenate((dens,array(f[ptype]['Density'])))
+/home/titouan/codes/Python_codes/Density_CGM_2D_ckpc.py:110: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp = concatenate((temp,array(f[ptype]['Temperature'])))

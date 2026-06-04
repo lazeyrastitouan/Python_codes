@@ -1,0 +1,16 @@
+/home/titouan/codes/Python_codes/MedianDensityGrid.py:134: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  pos  = concatenate((pos,array(f[ptype]['Coordinates'])*U_L/kpcincm)) #ckpc
+/home/titouan/codes/Python_codes/MedianDensityGrid.py:137: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  mass = concatenate((mass,array(f[ptype]['Masses']))) #10^10 Msun
+/home/titouan/codes/Python_codes/MedianDensityGrid.py:145: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  D     = array(f[ptype]['Densities'])
+/home/titouan/codes/Python_codes/MedianDensityGrid.py:151: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp = concatenate((temp,array(f[ptype]['Temperatures'])))
+/home/titouan/codes/Python_codes/MedianDensityGrid.py:134: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  pos  = concatenate((pos,array(f[ptype]['Coordinates'])*U_L/kpcincm)) #ckpc
+/home/titouan/codes/Python_codes/MedianDensityGrid.py:137: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  mass = concatenate((mass,array(f[ptype]['Masses']))) #10^10 Msun
+/home/titouan/codes/Python_codes/MedianDensityGrid.py:145: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  D     = array(f[ptype]['Densities'])
+/home/titouan/codes/Python_codes/MedianDensityGrid.py:151: DeprecationWarning: `product` is deprecated as of NumPy 1.25.0, and will be removed in NumPy 2.0. Please use `prod` instead.
+  temp = concatenate((temp,array(f[ptype]['Temperatures'])))
