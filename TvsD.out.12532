@@ -88,3 +88,31 @@ Kept 1 halos
 shape(selected) = (1, 796961)
 Saving density and temperature to /data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom2_hydro_fire2_lvl7/Halo1312/sftresh_cool_low_fb_boost/snapdir_001/
 Plotting...
+Simulation type = dalya
+Data type = HDF5
+Catalog type = P2C
+['snap_001.000.hdf5', 'snap_001.001.hdf5', 'snap_001.002.hdf5', 'snap_001.003.hdf5', 'snap_001.004.hdf5', 'snap_001.005.hdf5', 'snap_001.006.hdf5', 'snap_001.007.hdf5', 'snap_001.008.hdf5', 'snap_001.009.hdf5', 'snap_001.010.hdf5', 'snap_001.011.hdf5', 'snap_001.012.hdf5', 'snap_001.013.hdf5', 'snap_001.014.hdf5', 'snap_001.015.hdf5']
+Loading...
+<HDF5 file "snap_001.000.hdf5" (mode r)>
+<HDF5 file "snap_001.001.hdf5" (mode r)>
+<HDF5 file "snap_001.002.hdf5" (mode r)>
+<HDF5 file "snap_001.003.hdf5" (mode r)>
+<HDF5 file "snap_001.004.hdf5" (mode r)>
+<HDF5 file "snap_001.005.hdf5" (mode r)>
+<HDF5 file "snap_001.006.hdf5" (mode r)>
+<HDF5 file "snap_001.007.hdf5" (mode r)>
+<HDF5 file "snap_001.008.hdf5" (mode r)>
+<HDF5 file "snap_001.009.hdf5" (mode r)>
+<HDF5 file "snap_001.010.hdf5" (mode r)>
+<HDF5 file "snap_001.011.hdf5" (mode r)>
+<HDF5 file "snap_001.012.hdf5" (mode r)>
+<HDF5 file "snap_001.013.hdf5" (mode r)>
+<HDF5 file "snap_001.014.hdf5" (mode r)>
+<HDF5 file "snap_001.015.hdf5" (mode r)>
+Number of particles: 113976046
+Plotting for particles within 67.77-135.54 ckpc/h
+Flagging particles...
+Kept 1 halos
+shape(selected) = (1, 724713)
+Saving density and temperature to /data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom2_hydro_fire2_lvl7/Halo1312/sftresh_cool_low_fb_boost/snapdir_001/
+Plotting...
