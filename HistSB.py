@@ -27,7 +27,7 @@ grid   = '256' #'512'
 edges  = [40.,100.,200.,300.]
 s      = '1.5'
 n      = '5e-20'
-suf    = ''#'noISMcut_' #'dust-7_' '' 'dust-5_' 'metal005_' 
+suf    = 'dust-5_'#'noISMcut_' #'dust-7_' '' 'dust-5_' 'metal005_' 
 print("Noise = "+n)
 if PDF:
     print("Histogram of PDF")

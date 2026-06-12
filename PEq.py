@@ -38,7 +38,7 @@ print("ratio P_hot/P_cold = "+str((hotrhod/coldrhod)/(coldTd/hotTd)))
 
 
 #COLIBRE
-Trhoc = np.load('/data/titouan/COLIBRE/L0050N0752/z3p5/colibre_0060/density_temperature_volume_in_50-160ckpc_Hcat.npz')
+Trhoc = np.load('/data/titouan/COLIBRE/L0050N1504/z3p5/colibre_0060/density_temperature_volume_in_50-160ckpc_Hcat.npz')
 Tc    = Trhoc['temperature']
 rhoc  = Trhoc['density']
 volc  = Trhoc['volume']
