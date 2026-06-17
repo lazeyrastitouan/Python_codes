@@ -29,6 +29,7 @@ import matplotlib
 from matplotlib.colors import* 
 from matplotlib.colors import LogNorm
 from scipy.spatial import cKDTree
+from scipy.stats import binned_statistic_2d
 
 plt.rc('text', usetex=True)
 plt.rc('font', family='serif')
@@ -70,12 +71,13 @@ if args.InOut is not None:
         annulus = True
 
 # settings
-datatype = 'HDF5' #'Gadget2'
-cattype  = 'P2C' #'AHF' #'P2C'
-verbose  = True
-savenpy  = True
-plot     = True
-ptype    = 'PartType0'
+datatype  = 'HDF5' #'Gadget2'
+cattype   = 'P2C' #'AHF' #'P2C'
+verbose   = True
+savenpy   = True
+plot      = True
+add_props = True
+ptype     = 'PartType0'
 	
 print("Simulation type = "+sim)
 print("Data type = "+datatype)
@@ -110,6 +112,9 @@ if args.dfile is None:
     # Load particles
     dens_list, temp_list, mass_list = [], [], []
     pos_list = []
+    if add_props:
+        Zsol = 0.013
+        Z_list, HI_list = [],[]
     if sim == 'eagle' and not catbool and inout:
         GN_list = []
 
@@ -124,7 +129,7 @@ if args.dfile is None:
         if catbool or sim =='eagle':
             pos_list.append(array(f[ptype]['Coordinates'], dtype=float32)) #kpc/h if dalya, mpc if colibre, mpc/h if eagle
         # --- MASSES --- #
-        mass_list.append(array(f[ptype]['Masses'], dtype=float32)) #Msun/h if dalya, Msun if Colibre
+        mass_list.append(array(f[ptype]['Masses'], dtype=float32)) #1e10 Msun/h if dalya, Msun if Colibre
         # --- DENSITY --- #
         if sim == 'dalya' or sim =='hello':
             dens_list.append(array(f[ptype]['Density'], dtype=float32))
@@ -170,7 +175,13 @@ if args.dfile is None:
 
             # --- TEMPERATURE --- #
             temp_list.append(array(f[ptype]['Temperatures'], dtype=float32))
-        
+            
+            if add_props:
+                #HI and Z
+                Z_list.append(array(f[ptype]['MetalMassFractions'], dtype=float32)/Zsol)
+                HMfrac = array(f[ptype]['ElementMassFractions'][:,0], dtype=float32)
+                HI_list.append(array(f[ptype]['SpeciesFractions'][:,1])*HMfrac)
+
         if sim != 'colibre':
             temp_list.append(array(f[ptype]['Temperature'], dtype=float32))
 
@@ -179,6 +190,9 @@ if args.dfile is None:
     dens = concatenate(dens_list)
     temp = concatenate(temp_list)
     mass = concatenate(mass_list)
+    if add_props:
+        Z  = concatenate(Z_list)
+        HI = concatenate(HI_list)
     if catbool or sim == 'eagle':
         pos = concatenate(pos_list)
     else:
@@ -278,6 +292,9 @@ if args.dfile is None:
         dens = dens[selected]  
         temp = temp[selected]
         mass = mass[selected]
+        if add_props:
+            Z  = Z[selected]
+            HI = HI[selected]
 
     #For eagle, can do in/out Rvir w/o catalog (FRACTION Rvir AND ANNULUS NOT IMPLEMENTED)
     if sim == 'eagle' and not catbool and inout:
@@ -314,10 +331,10 @@ if args.dfile is None:
     kpcincm    = 3.086e21
     if sim == 'dalya' or sim =='hello':
         dens *= a**(-3.)*h**2.*Msuningram/kpcincm**3./mA 
-        mass *= Msuningram/(h*mA)
+        mass = mass*Msuningram/(h*mA)
     elif sim == 'eagle' or sim == 'colibre':
         dens /= mA
-        mass *= Msuningram/mA
+        mass = mass*Msuningram/mA
 
     #let's get volume as needed for weighted averages
     vol = mass/dens #physical cc
@@ -332,7 +349,11 @@ if args.dfile is None:
             else:
                 if catbool:
                     if annulus:
-                        savez(snappath+'/density_temperature_volume_in_'+str(int(ckpc[0]/h))+'-'+str(int(ckpc[1]/h))+'ckpc_Hcat', density=dens,temperature=temp,volume=vol)
+                        if add_props:
+                            savez(snappath+'/density_temperature_volume_HI_Z_in_'+str(int(ckpc[0]/h))+'-'+str(int(ckpc[1]/h))+'ckpc_Hcat', density=dens,temperature=temp,volume=vol,HI=HI,metal=Z)
+                        else:
+                            savez(snappath+'/density_temperature_volume_in_'+str(int(ckpc[0]/h))+'-'+str(int(ckpc[1]/h))+'ckpc_Hcat', density=dens,temperature=temp,volume=vol)
+
                     else:
                         savez(snappath+'/density_temperature_volume_in_'+str(fRv[0])+'-'+str(fRv[1])+'Rvir_Hcat', density=dens,temperature=temp,volume=vol)
                 else:
@@ -350,6 +371,11 @@ if args.dfile is not None:
     data  = load(snappath+'/'+dfile)
     dens  = data['density']
     temp  = data['temperature']
+    if add_props:
+        HI = data['HI']
+        Z  = data['metal']
+        HI = where(HI>0.0,HI,1e-6)
+
     z = 3.5
     print("Redshift = "+str(z))
     if args.annulus is not None:
@@ -357,7 +383,7 @@ if args.dfile is not None:
 
 
 #2D HSITOGRAM
-if plot:
+if plot and not add_props:
     print("Plotting...")
     binst = linspace(min(log10(temp)),max(log10(temp)),500)
     binsd = linspace(min(log10(dens)),max(log10(dens)),500)
@@ -411,5 +437,42 @@ if plot:
     plt.plot([-5,5.5],[4,4],'k-',linewidth=0.5)    
     plt.tight_layout()
     plt.savefig(fout, bbox_inches='tight')
+    plt.show()
+
+if plot and add_props:
+    plt.figure(1)
+    # Compute mean Z in each (T, den) bin
+    Zmean, binsd, binst, binnumber = binned_statistic_2d(log10(dens), log10(temp), Z,statistic="mean",bins=500)   # "mean", "median", "sum", "std", "count", or custom function
+    plt.pcolormesh(binsd, binst, Zmean.T, norm=LogNorm(vmin=1e-3, vmax=1),shading="auto")
+    plt.colorbar().set_label(label=r"$Z/Z_\odot$",fontsize=14)
+    plt.ylim(3,5)
+    plt.xlim(-3.0,4.0)
+    fig = plt.gcf()  # get current figure
+    fig.set_size_inches(7, 4.5)
+    if sim == 'colibre':
+        plt.title('COLIBRE m6',fontsize=18)
+    plt.xlabel(r'$\log(\rho) \;[\textrm{cm}^{-3}]$',fontsize=14, labelpad=12)
+    plt.ylabel(r'$\log(T)$ [K]',fontsize=14, labelpad=12)
+    f1 = snappath+'/TvsD_in_Zcolored.pdf'
+   # print("Saving figure to "+f1)
+   # plt.savefig(f1, bbox_inches='tight')
+    
+    plt.figure(2)
+    # Compute mean HI in each (T, den) bin
+    HImean, binsd, binst, binnumber = binned_statistic_2d(log10(dens), log10(temp), HI,statistic="mean",bins=500)   # "mean", "median", "sum", "std", "count", or custom function
+    plt.pcolormesh(binsd, binst, HImean.T, norm=LogNorm(vmin=1e-3, vmax=1))#shading="auto")
+    plt.colorbar().set_label(label=r"HI mass fraction",fontsize=14)
+    plt.ylim(3,5)
+    plt.xlim(-3.0,4.0)
+    fig = plt.gcf()  # get current figure
+    fig.set_size_inches(7, 4.5)
+    if sim == 'colibre':
+        plt.title('COLIBRE m6',fontsize=18)
+    plt.xlabel(r'$\log(\rho) \;[\textrm{cm}^{-3}]$',fontsize=14, labelpad=12)
+    plt.ylabel(r'$\log(T)$ [K]',fontsize=14, labelpad=12)
+    f2 = snappath+'/TvsD_in_HIcolored.pdf'
+    print("Saving figure to "+f2)
+    plt.savefig(f2, bbox_inches='tight')
+
     plt.show()
 
