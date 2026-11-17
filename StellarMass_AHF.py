@@ -109,51 +109,66 @@ def behroozi(redshift,hmass=0):
 
     return array([Mh,10**Mstar_log])
 
+def selcenterprop(cat,subcat):
+    with open(subcat) as FILE:
+        lines = list(filter(None,(line.rstrip() for line in FILE)))
+        nhalos = int32(len(lines)/2)
+        host, nsubs, = [], []
+        sub          = [[] for x in range(nhalos)]
+        for i in range(nhalos):
+            host.append(int64(lines[2*i].split('        ')[0]))
+            nsub = int32(lines[2*i].split('        ')[1])
+            nsubs.append(nsub)
+            for j in range(nsub):
+                sub[i].append(int64(lines[2*i+1].split('\t')[j+1]))
+
+    print('Selecting and computing central properties...')
+    Mhp, Msp = [],[]
+    #select
+    for i in range(len(cat['ID'])):
+        if cat['Ms'][i] != 0.0 and (cat['Host'][i] == 0 or cat['Host'][i] == -1) and cat['fh'][i] > 0.95:
+        #this whole loop can be replaced by e.g. filter=cat['Ms']!=0.0; cat[filter]; 
+            Mhp.append(cat['Mh'][i])
+            if cat['Nsub'][i] == 0:
+                Msp.append(cat['Ms'][i])
+            else:
+                #go find its subhalos in the previously formed subhalos catalog
+                subid = host.index(cat['ID'][i])
+                subs  = sub[subid]
+                #remove their stellar mass
+                for si in subs:
+                    subidincat = cat['ID'].tolist().index(si)
+                    cat['Ms'][i] = cat['Ms'][i]-cat['Ms'][subidincat]
+                Msp.append(cat['Ms'][i])
+    
+    Mhp=array(Mhp)
+    Msp=array(Msp)
+    return Mhp, Msp
+
 # -------------------------------------------------------------------------------------------------#
 #Start by loading: #[0]ID, [1]Host, [2]Nsub, [3]Mh, [4]fhires, [5]Mstar
-root = "/data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1p5_hydro_fire2_lvl7/Halo10/sftresh_cool_low_fb_boost/AHF_007_allparts/"
-z    = 3.0
-title = 'z = '+str(z)+', CDM'
-print('Loading...')
+#DaLya
+root = "/data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1p5_hydro_fire2_lvl7/Halo10/sftresh_cool_low_fb_boost/AHF_004_allparts/"
+z    = 3.5
+print('Loading dalya...')
 cat = loadtxt(root+"/200_snap_z"+str(z)+"00_halos_sorted",usecols=(0,1,2,3,37,64),dtype={'names':('ID','Host','Nsub','Mh','fh','Ms'), 'formats':(int64,int64,int32,float,float,float)})
-h   = 0.6777
+hD   = 0.6777
+subcat = root+"/200_snap_z"+str(z)+"00_substructure"
+MhpD, MspD = selcenterprop(cat,subcat)
+MhpD = MhpD/hD
+MspD = MspD/hD
 
-#subhalos
-with open(root+"/200_snap_z"+str(z)+"00_substructure") as FILE:
-	lines = list(filter(None,(line.rstrip() for line in FILE)))
-nhalos = int32(len(lines)/2)
-host, nsubs, = [], []
-sub          = [[] for x in range(nhalos)]
-for i in range(nhalos):
-	host.append(int64(lines[2*i].split('        ')[0]))
-	nsub = int32(lines[2*i].split('        ')[1])
-	nsubs.append(nsub)
-	for j in range(nsub):
-		sub[i].append(int64(lines[2*i+1].split('\t')[j+1]))
+#HELLO
+rootH = "/data/titouan/HELLO/CDM/g9.20e12/"
+print('Loading Hello...')
+catH = loadtxt(rootH+"/g9.20e12.00128.z3.596.AHF_halos_sorted",usecols=(0,1,2,3,37,64),dtype={'names':('ID','Host','Nsub','Mh','fh','Ms'), 'formats':(int64,int64,int32,float,float,float)})
+hH   = 0.681
+subcatH = rootH+"/g9.20e12.00128.z3.596.AHF_substructure_reformatted"
+MhpH, MspH = selcenterprop(catH,subcatH)
+MhpH = MhpH/hH
+MspH = MspH/hH
 
-print('Selecting and computing central properties...')
-Mhp, Msp = [],[]
-#select
-for i in range(len(cat['ID'])):
-	if cat['Ms'][i] != 0.0 and cat['Host'][i] == 0 and cat['fh'][i] > 0.95:
-        #this whole loop can be replaced by e.g. filter=cat['Ms']!=0.0; cat[filter]; 
-		Mhp.append(cat['Mh'][i])
-		if cat['Nsub'][i] == 0:
-			Msp.append(cat['Ms'][i])
-		else:	
-			#go find its subhalos in the previously formed subhalos catalog
-			subid = host.index(cat['ID'][i])
-			subs  = sub[subid]
-			#remove their stellar mass
-			for si in subs:
-				subidincat = cat['ID'].tolist().index(si)
-				cat['Ms'][i] = cat['Ms'][i]-cat['Ms'][subidincat]
-			Msp.append(cat['Ms'][i])		
-
-
-Mhp=array(Mhp)
-Msp=array(Msp)
-
+#OTHER LITTERATURE RELATIONS
 fb     = 0.0483/0.307
 Mhm    = 10.**linspace(log10(1e7),log10(1e14),100)
 Msm09  = moster09(z,Mhm)
@@ -170,15 +185,16 @@ plt.plot(log10(Mhm),log10(Msb13),'r-',label=r'Behroozi+ 2013')
 plt.plot(log10(Mhm),log10(Msm18),'y-',label=r'Moster+ 2018')
 if z == 4.0:
     plt.plot(log10(Mhm),log10(Mst18),'c-',label=r'Tacchella+ 2018')
-plt.plot(log10(Mhp/h),log10(Msp/h),'m.',label=r'DaLya')
-#plt.title(r''+title,fontsize=16) 
-plt.text(11.1,11.4,r'z='+str(z),fontsize=18)
+plt.plot(log10(MhpD),log10(MspD),'m.',label=r'DaLya')
+plt.plot(log10(MhpH),log10(MspH),'b.',label=r'HELLO')
+plt.text(11.1,11.4,r'z = '+str(z),fontsize=18)
 plt.legend(loc=0,prop={'size':14}, frameon=False)
 plt.xlabel(r"$\log M_h \; [M_\odot]$",fontsize=20, labelpad=14)
 plt.ylabel(r"$\log M_\star \; [M_\odot]$",fontsize=20,labelpad=15)
-plt.xlim([11.,13.0])
+plt.xlim([11,13.0])
 plt.ylim([8.5,11.75])
 plt.tight_layout()
-plt.savefig(root+'/Mh_Mstar_centrals_z'+str(z)+'_zoom1p5_hydro_fire2.pdf', bbox_inches='tight')
-print("Saved figure to "+root+'/Mh_Mstar_centrals_z'+str(z)+'_zoom1p5_hydro_fire2.pdf')
+fout = 'Mh_Mstar_centrals_z'+str(z)+'_dalya_zoom1p5_hello.pdf'
+plt.savefig(fout, bbox_inches='tight')
+print("Saved figure to "+fout)
 plt.show()

@@ -22,8 +22,8 @@ if args.cubex:
 #some hard-coded settings
 specres   = 1.25 #Angstrom
 verbose   = True
-singleobj = True #wether to keep only 1 object from cubex or all of them
-NB        = True #pseudo narrow-band images instead of optimally extracted
+singleobj = False #True #wether to keep only 1 object from cubex or all of them
+NB        = False #True #pseudo narrow-band images instead of optimally extracted
 
 print("Reading data...")
 print(f1)

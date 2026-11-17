@@ -154,8 +154,8 @@ if img2d:
     #cbar   = fig.colorbar(cax,cax=cbaxes, orientation='vertical',ticks=[1e19,1e20,1e21,1e22])
     #cbar.ax.tick_params(color='white',which='both', labelcolor='white')
     ### horizontal colorbar ###
-    #cbar = fig.colorbar(cax,orientation='horizontal',fraction=0.043, pad=0.04)
-    #cbar.set_label(r'N [atom/cm$^{-2}]$',fontsize=12)
+    cbar = fig.colorbar(cax,orientation='vertical',fraction=0.043, pad=0.04)
+    cbar.set_label(r'N [atom/cm$^{-2}]$',fontsize=12)
     fout = '/data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom1p5_hydro_fire2_lvl7/Halo1312/sftresh_cool_low_fb_boost/snapdir_002/2cMpc/Ngas_z'+str(red)+'_'+plane+suffix+'.pdf'
     print("Saving figure to "+fout)
     plt.savefig(fout,bbox_inches='tight')

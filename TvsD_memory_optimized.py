@@ -76,7 +76,7 @@ cattype   = 'P2C' #'AHF' #'P2C'
 verbose   = True
 savenpy   = True
 plot      = True
-add_props = True
+add_props = False
 ptype     = 'PartType0'
 	
 print("Simulation type = "+sim)
@@ -414,20 +414,19 @@ if plot and not add_props:
                 fRv = args.Rvirfrac[0]
                 plt.text(-4.2,1.5,r'$<$ '+str(fRv)+r'$R_{\textrm{vir}}$',fontsize=11)
             elif annulus and args.dfile is None:
-                plt.text(-4.2,1.5,r''+str(round(ckpc[0]/h,0))+r'$\leq r \leq$'+str(round(ckpc[1]/h,0)),fontsize=11)
+                plt.text(-4.2,1.5,r''+str(round(ckpc[0]/h,0))+r'$\leq r \leq$'+str(round(ckpc[1]/h,0)),fontsize=13)
             elif annulus:
-                plt.text(1.5,4.65,r''+str(int(ckpc[0]))+r'$\leq r \leq$'+str(int(ckpc[1])),fontsize=11)
+                plt.text(1.5,4.65,r''+str(int(ckpc[0]))+r' $\leq$ $r$ [ckpc] $\leq$ '+str(int(ckpc[1])),fontsize=13)
             else:
             	plt.text(-4.2,1.5,r'$\leq R_{vir}$',fontsize=11)
-            plt.text(1.5,4.5,r'$12.0 \leq \log M \leq 12.5$',fontsize=11)
+            #plt.text(1.5,4.5,r'$12.0 \leq \log M \leq 12.5$',fontsize=11)
             fout     = snappath+'/TvsD_in.pdf'
     else:
         plt.text(-4.2,1.5,r'All particles',fontsize=13)
         fout     = snappath+'/TvsD_all.pdf'
-    plt.xlabel(r'$\log(\rho) \;[\textrm{cm}^{-3}]$',fontsize=14, labelpad=12)
-    plt.ylabel(r'$\log(T)$ [K]',fontsize=14, labelpad=12)
-    #plt.title(r'z = '+str(round(z,2)),fontsize=16)
-    plt.text(1.5,4.8,r'z = '+str(round(z,2)),fontsize=11)
+    plt.xlabel(r'$\log(n) \;[\textrm{cm}^{-3}]$',fontsize=16, labelpad=12)
+    plt.ylabel(r'$\log(T)$ [K]',fontsize=16, labelpad=12)
+    #plt.text(1.5,4.8,r'z = '+str(round(z,2)),fontsize=11)
     if sim == 'dalya':
         plt.title('DaLya',fontsize=18)
     elif sim == 'hello':
@@ -467,7 +466,7 @@ if plot and add_props:
     fig = plt.gcf()  # get current figure
     fig.set_size_inches(7, 4.5)
     if sim == 'colibre':
-        plt.title('COLIBRE m6',fontsize=18)
+        plt.title('COLIBRE m5',fontsize=18)
     plt.xlabel(r'$\log(\rho) \;[\textrm{cm}^{-3}]$',fontsize=14, labelpad=12)
     plt.ylabel(r'$\log(T)$ [K]',fontsize=14, labelpad=12)
     f2 = snappath+'/TvsD_in_HIcolored.pdf'

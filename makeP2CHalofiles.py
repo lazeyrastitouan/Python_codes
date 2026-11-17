@@ -26,10 +26,10 @@ j = 1
 for mhi in ms:
     print(mhi-dM)
     print(mhi)
-    filterM          = (log10(f[filter][filter1]['Mhalo4']/h)>=(mhi-dM)) & (log10(f[filter][filter1]['Mhalo4']/h)<mhi)
+    filterM          = (log10(f[filter][filter1]['Mvir4']/h)>=(mhi-dM)) & (log10(f[filter][filter1]['Mvir4']/h)<mhi) #Mhalo4
     cathiresnosub    = f[filter][filter1][filterM]
 
-    print(f[filter][filter1][filterM]['Mhalo4']/h)
+    print(f[filter][filter1][filterM]['Mvir4']/h)#Mhalo4
 
     #write
     fout             = open(halocat+"_main_hires_Mlow_"+str(mhi-dM)+"_Mhigh_"+str(mhi)+".txt",'w')
@@ -38,8 +38,8 @@ for mhi in ms:
     posX = f[filter][filter1][filterM]['Xc6']/h/1000.
     posY = f[filter][filter1][filterM]['Yc7']/h/1000.
     posZ = f[filter][filter1][filterM]['Zc8']/h/1000.
-    rVir = f[filter][filter1][filterM]['Rhalo12']/h/(1.+red)
-    M    = f[filter][filter1][filterM]['Mhalo4']/h
+    rVir = f[filter][filter1][filterM]['Rvir12']/h/(1.+red) #Rhalo12
+    M    = f[filter][filter1][filterM]['Mvir4']/h
     VX = f[filter][filter1][filterM]['VXc9']
     VY = f[filter][filter1][filterM]['VYc10']
     VZ = f[filter][filter1][filterM]['VZc11']

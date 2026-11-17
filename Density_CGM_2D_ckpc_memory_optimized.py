@@ -37,11 +37,12 @@ sim      = args.simtype[0]
 # settings
 cattype  = 'P2C' #'AHF' #'P2C'
 verbose  = True
+dustcut  = 1e-5 #dust mass fraction threshold. Set to None for no cut
 ptype    = 'PartType0'
 Tmin     = 1e3
 Tmax     = 1e5
-Rs       = array([100,200]) #ckpc 
-Ro       = ['100','200']
+Rs       = array([50,160]) #ckpc 
+Ro       = ['50','160']
 LOS      = ['X','Y','Z']
 
 print("Simulation type = "+sim)
@@ -90,7 +91,7 @@ elif sim == 'colibre':
 # Load particles
 # Store one array per HDF5 file and concatenate once at the end.
 # This avoids repeated full-array reallocations/copies inside the file loop.
-dens_list, temp_list, mass_list, pos_list = [], [], [], []
+dens_list, temp_list, mass_list, pos_list, dust_list = [], [], [], [], []
 
 # --- HDF5 FILES LOOP --- #
 print("Loading...")
@@ -149,12 +150,19 @@ for i in h5files:
             # --- TEMPERATURE --- #
             temp_list.append(array(f[ptype]['Temperatures']))
 
+            # --- DUST --- #
+            if dustcut is not None:
+                dust_list.append(array(f[ptype]['TotalDustMassFractions']))
+                
+
 # Concatenate once, after reading all HDF5 files.
 pos  = concatenate(pos_list, axis=0)
 mass = concatenate(mass_list, axis=0)
 dens = concatenate(dens_list, axis=0)
 temp = concatenate(temp_list, axis=0)
-del pos_list, mass_list, dens_list, temp_list
+if dustcut is not None:
+    dust = concatenate(dust_list, axis=0)
+del pos_list, mass_list, dens_list, temp_list, dust_list
 
 # --- END OF HDF5 FILES LOOP --- #
 
@@ -173,17 +181,30 @@ elif sim == 'colibre':
     dens  = dens[maskE]
     temp  = temp[maskE]
     mass  = mass[maskE]
+    if dustcut is not None:
+        dust = dust[maskE]
 
 # --- KEEP PARTICLES IN CORRECT TEMPERATURE RANGE --- #
 maskT = where((temp >= Tmin) & (temp <= Tmax))
 dens  = dens[maskT]
 pos   = pos[maskT]
 mass  = mass[maskT]
-
+if dustcut is not None:
+    dust = dust[maskT]
+    
 if verbose:
     n_particles = len(dens)
     print("Number of particles: "+str(n_particles))
 
+# --- KEEP PARTICLES W/ CORRECT DUST MASS FRACTION --- #
+if sim == 'colibre' and dustcut is not None:
+    maskdst = where(dust <= dustcut)
+    pos   = pos[maskdst]
+    dens  = dens[maskdst]
+    temp  = temp[maskdst]
+    mass  = mass[maskdst]
+
+# --- HALO CATALOGUE --- #
 if cattype == 'AHF':
     cat = loadtxt(args.Hcat[0],usecols=(5,6,7,11),dtype={'names':('Hx','Hy','Hz','Rvir'), 'formats':(float,float,float,float)})
 elif cattype == 'P2C':

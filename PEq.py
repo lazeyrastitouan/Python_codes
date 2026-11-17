@@ -26,6 +26,8 @@ meanMd = 1.8378467611037332e12 #Msol
 meanRd = 84.19818667715968 #pkpc
 Tvird  = G * mu*mH * meanMd*Msol_in_g / (gamma * kb *meanRd*kpc_in_cm)
 
+coldndensed = (coldd) & (rhod >= 1.0 ) & (rhod <= 10.0)
+
 print("DaLya zm1p5")
 print("<T_hot> [1e6 K] = "+str(hotTd/1e6))
 print("<T_vir> [1e6 K] = "+str(Tvird/1e6))
@@ -35,6 +37,9 @@ print("<n_cold> [cm^-3] = "+str(coldrhod))
 print("<n_hot>/<n_cold> = "+str(hotrhod/coldrhod))
 print("<T_cold>/<T_hot> = "+str(coldTd/hotTd))
 print("ratio P_hot/P_cold = "+str((hotrhod/coldrhod)/(coldTd/hotTd)))
+#print("<n_cold>[cm^-3] in 1<=n<=10 = "+str(np.average(rhod[coldndensed],weights=vold[coldndensed])))
+#print("<T_cold> in 1<=n<=10 = "+str(np.average(Td[coldndensed])))#,weights=vold[coldndensed])))
+print("Median T_cold in 1<=n<=10 = "+str(np.percentile(Td[coldndensed],50)))
 
 #DALYA zm2
 Trhod = np.load('/data/titouan/Eagle_cosmo_gizmo/200_512/CDM/zoom2_hydro_fire2_lvl7/Halo10/sftresh_cool_low_fb_boost/snapdir_004/density_temperature_volume_in_50-160ckpc_Hcat.npz')
@@ -54,6 +59,8 @@ meanMd = 2.01500738e12 #Msol
 meanRd = 86.342695065 #pkpc
 Tvird  = G * mu*mH * meanMd*Msol_in_g / (gamma * kb *meanRd*kpc_in_cm)
 
+coldndensed = (coldd) & (rhod >= 1.0 ) & (rhod <= 10.0)
+
 print("DaLya zm2")
 print("<T_hot> [1e6 K] = "+str(hotTd/1e6))
 print("<T_vir> [1e6 K] = "+str(Tvird/1e6))
@@ -63,7 +70,9 @@ print("<n_cold> [cm^-3] = "+str(coldrhod))
 print("<n_hot>/<n_cold> = "+str(hotrhod/coldrhod))
 print("<T_cold>/<T_hot> = "+str(coldTd/hotTd))
 print("ratio P_hot/P_cold = "+str((hotrhod/coldrhod)/(coldTd/hotTd)))
-
+#print("<n_cold>[cm^-3] in 1<=n<=10 = "+str(np.average(rhod[coldndensed],weights=vold[coldndensed])))
+#print("<T_cold>[cm^-3] in 1<=n<=10 = "+str(np.average(Td[coldndensed])))#,weights=vold[coldndensed])))
+print("Median T_cold in 1<=n<=10 = "+str(np.percentile(Td[coldndensed],50)))
 
 #COLIBRE m6
 Trhoc = np.load('/data/titouan/COLIBRE/L0050N0752/z3p5/colibre_0060/density_temperature_volume_in_50-160ckpc_Hcat.npz')
@@ -83,6 +92,8 @@ meanMc = 1.388125e12 #Msol
 meanRc = 76.9042985 #pkpc
 Tvirc  = G * mu*mH * meanMc*Msol_in_g / (gamma * kb *meanRc*kpc_in_cm)
 
+coldndensec = (coldc) & (rhoc >= 1.0 ) & (rhoc <= 10.0)
+
 print("COLIBRE m6")
 print("<T_hot> [1e6 K] = "+str(hotTc/1e6))
 print("<T_vir> [1e6 K] = "+str(Tvirc/1e6))
@@ -92,6 +103,9 @@ print("<n_cold> [cm^-3] = "+str(coldrhoc))
 print("<n_hot>/<n_cold> = "+str(hotrhoc/coldrhoc))
 print("<T_cold>/<T_hot> = "+str(coldTc/hotTc))
 print("ratio P_hot/P_cold = "+str((hotrhoc/coldrhoc)/(coldTc/hotTc)))
+#print("<n_cold>[cm^-3] in 1<=n<=10 = "+str(np.average(rhoc[coldndensec],weights=volc[coldndensec])))
+#print("<T_cold>[cm^-3] in 1<=n<=10 = "+str(np.average(Tc[coldndensec])))#,weights=volc[coldndensec])))
+print("Median T_cold in 1<=n<=10 = "+str(np.percentile(Tc[coldndensec],50)))
 
 #COLIBRE m5
 Trhoc = np.load('/data/titouan/COLIBRE/L0050N1504/z3p5/colibre_0060/density_temperature_volume_in_50-160ckpc_Hcat.npz')
@@ -111,6 +125,8 @@ meanMc = 1.36522727272727272e12 #Msol
 meanRc = 76.53685272727273 #pkpc
 Tvirc  = G * mu*mH * meanMc*Msol_in_g / (gamma * kb *meanRc*kpc_in_cm)
 
+coldndensec = (coldc) & (rhoc >= 1.0 ) & (rhoc <= 10.0)
+
 print("COLIBRE m5")
 print("<T_hot> [1e6 K] = "+str(hotTc/1e6))
 print("<T_vir> [1e6 K] = "+str(Tvirc/1e6))
@@ -120,6 +136,9 @@ print("<n_cold> [cm^-3] = "+str(coldrhoc))
 print("<n_hot>/<n_cold> = "+str(hotrhoc/coldrhoc))
 print("<T_cold>/<T_hot> = "+str(coldTc/hotTc))
 print("ratio P_hot/P_cold = "+str((hotrhoc/coldrhoc)/(coldTc/hotTc)))
+#print("<n_cold>[cm^-3] in 1<=n<=10 = "+str(np.average(rhoc[coldndensec],weights=volc[coldndensec])))
+#print("<T_cold>[cm^-3] in 1<=n<=10 = "+str(np.average(Tc[coldndensec])))#,weights=volc[coldndensec])))
+print("Median T_cold in 1<=n<=10 = "+str(np.percentile(Tc[coldndensec],50)))
 
 #HELLO
 Trhoh = np.load('/data/titouan/HELLO/CDM/g9.20e12/density_temperature_volume_in_50-160ckpc_Hcat.npz')
@@ -139,6 +158,8 @@ meanMh = 1.101989444573e12 #Msol
 meanRh = 69.38280732607619 #pkpc
 Tvirh  = G * mu*mH * meanMh*Msol_in_g / (gamma * kb *meanRh*kpc_in_cm)
 
+coldndenseh = (coldh) & (rhoh >= 1.0 ) & (rhoh <= 10.0)
+
 print("HELLO")
 print("<T_hot> [1e6 K] = "+str(hotTh/1e6))
 print("<T_vir> [1e6 K] = "+str(Tvirh/1e6))
@@ -148,3 +169,6 @@ print("<n_cold> [cm^-3] = "+str(coldrhoh))
 print("<n_hot>/<n_cold> = "+str(hotrhoh/coldrhoh))
 print("<T_cold>/<T_hot> = "+str(coldTh/hotTh))
 print("ratio P_hot/P_cold = "+str((hotrhoh/coldrhoh)/(coldTh/hotTh)))
+#print("<n_cold>[cm^-3] in 1<=n<=10 = "+str(np.average(rhoh[coldndenseh],weights=volh[coldndenseh])))
+#print("<T_cold>[cm^-3] in 1<=n<=10 = "+str(np.average(Th[coldndenseh])))#,weights=volh[coldndenseh])))
+print("Median T_cold in 1<=n<=10 = "+str(np.percentile(Th[coldndenseh],50)))

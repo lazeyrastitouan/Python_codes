@@ -25,12 +25,12 @@
 
 module purge
 
-python3 /home/titouan/codes/Python_codes/Density_CGM_2D_ckpc_memory_optimized.py /data/titouan/COLIBRE/L0050N1504/z3p5/colibre_0060/ colibre /data/titouan/COLIBRE/L0050N1504/z3p5/200_snap_z3.5_halos_sorted_main_hires_Mlow_12.0_Mhigh_12.5.txt >> /data/titouan/COLIBRE/L0050N1504/z3p5/colibre_0060/Density_CGM_2D_M12p1.log
+python3 /home/titouan/codes/Python_codes/Density_CGM_2D_ckpc_memory_optimized.py /data/titouan/COLIBRE/L0050N1504/z3p5/colibre_0060/ colibre /data/titouan/COLIBRE/L0050N1504/z3p5/200_snap_z3.5_halos_sorted_main_hires_Mlow_12.0_Mhigh_12.5.txt >> /data/titouan/COLIBRE/L0050N1504/z3p5/colibre_0060/2cMpc/dust-5/Density_CGM_2D_M12p1.log
 
 cd /data/titouan/COLIBRE/L0050N1504/z3p5/colibre_0060/
 for l in X Y Z 
 do
-	mv density_volume_Tmin1e+3_Tmax1e+5_in_100-200ckpc_"$l".npz density_volume_Tmin1e+3_Tmax1e+5_in_100-200ckpc_"$l"_M12p1.npz
+	mv density_volume_Tmin1e+3_Tmax1e+5_in_50-160ckpc_"$l".npz 2cMpc/dust-5/density_volume_Tmin1e+3_Tmax1e+5_in_50-160ckpc_"$l"_M12p1.npz
 	#mv density_volume_Tmin1e+3_Tmax1e+5_in_200-300ckpc_"$l".npz density_volume_Tmin1e+3_Tmax1e+5_in_200-300ckpc_"$l"_M12p1.npz
 done
 

@@ -18,7 +18,7 @@ savemean = True
 zm      = '1p5'
 red     = 3.5
 edges   = [100,200]
-sims    = ['DaLya', 'COLIBRE m6', 'HELLO']
+sims    = ['DaLya fiducial', 'COLIBRE m6', 'HELLO']
 grids   = [ [[4,11]], [[4,15]], [[1,2]] ] #LR[ [[2,3]], [[4,14]], [[1,2]] ] #HR[[[4,11]], [[4,15]], [[2,2]] ]
 sg      = shape(grids) #num sims, num Mmbin, low grid - high grid
 colors  = ['b','orange','g']
@@ -32,7 +32,7 @@ sb  = obs[0]
 
 for m in Mf:
     im   = Mf.index(m)
-    fout = '/data/titouan/Eagle_cosmo_gizmo/200_512/CDM/CoveringFraction_z'+str(red)+'_dalya1p5_colibrem6_smooth1p5.pdf'
+    fout = '/data/titouan/Eagle_cosmo_gizmo/200_512/CDM/CoveringFraction_z'+str(red)+'_dalya1p5_smooth1p5.pdf'
     #fig1 mlow, fig2  mhigh, axs are different annuli if needed
     if len(edges)-1 == 1:
         fig, axs = plt.subplots(1,len(edges)-1)
@@ -55,7 +55,7 @@ for m in Mf:
     #    axs[0].set_title(r'$12.5 \leq \log M \leq 13.1$',fontsize=14)
     
     for s in range(sg[0]):
-        if s > 1:
+        if s > 0:
             continue
         mfcov, sfcov = empty((0,len(edges)-1)), empty((0,len(edges)-1)) #final shape will be number SB tresh, len(edges)-1
         for ie in range(len(edges)-1):
@@ -87,7 +87,7 @@ for m in Mf:
 
     for i in range(len(edges)-1):
         obs = loadtxt("/data/titouan/Andrea_MAGG_data/SB_values_"+str(edges[i])+"_"+str(edges[i+1])+"ckpc_CoveringFraction.txt").T
-        axs[i].plot(obs[0,0:-1],obs[1,0:-1],'k-')#,label=r'Observations, Travascio+ in prep.')
+        axs[i].plot(obs[0,0:-1],obs[1,0:-1],'k-',label=r'Observations, Travascio+ in prep.')
         axs[i].set_xlim(min(obs[0]),1e-13)
         axs[i].legend(loc='lower left',frameon=False,prop={'size':16})
     plt.savefig(fout, bbox_inches='tight')
