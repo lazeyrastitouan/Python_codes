@@ -13,17 +13,17 @@ def weighted_median(values, weights):
 parser = argparse.ArgumentParser(description='Get median density of particles in a temperature range along a LOS CGM particles of a halo catalog. Args: < simulation type >, < Halo catalog >, < sub-grid 1D length >, < sub-grid 1D size >, < Tmin >, < Tmax >')
 parser.add_argument('-simtype',nargs=1,type=str, help='Simulation type (dalya/colibre/hello). For hello, rename napshot by snap_<hello snapshot> and make sure only one is named like this (str)')
 parser.add_argument('-subbox',nargs=1,type=float,default=2000., help='sub-box 1D length (ckpc)')
-parser.add_argument('-ngrid',nargs=1,type=int,default=256., help='subgrid 1D size')
+parser.add_argument('-ngrid',nargs=1,type=int,default=256, help='subgrid 1D size')
 parser.add_argument('-tmin',nargs=1,type=float,default=1e3, help='min temperature (K)')
 parser.add_argument('-tmax',nargs=1,type=float,default=1e5, help='max temperature (K)')
 parser.add_argument('-mmin',nargs=1,type=float,default=12.0, help='lower mass edge (log10)')
 args     = parser.parse_args()
 sim      = args.simtype[0]
-subL     = args.subbox[0]
-grid     = args.ngrid[0]
-Tmin     = args.tmin[0]
-Tmax     = args.tmax[0]
-mmin     = args.mmin[0]
+subL     = args.subbox
+grid     = args.ngrid
+Tmin     = args.tmin
+Tmax     = args.tmax
+mmin     = args.mmin
 cell     = subL/grid #ckpc
 
 Rs       = array([50,160]) #ckpc 
