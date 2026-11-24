@@ -60,10 +60,10 @@ if toplot == 'SB':
 		exit()
 
 #some hard-coded settings
-gn        = 15
+gn        = 3
 red       = 3.5 #3.596 
 a         = 1./(1.+red)
-Lbox      = 2.0 #cMpc
+Lbox      = 4.0 #cMpc
 scale     = 'log' #'linear' or 'log'
 cmap      = colormap(toplot) #'viridis', 'nipy_spectral','Spectral_r','Set3','Paired'
 
@@ -307,9 +307,9 @@ if img2d:
         ax1.add_patch(circle05)
         ax1.add_patch(circle02)
     #fout = toplot+'_z'+str(red)+'_Halo4_'+plane+'_w'+str(width)+suffix+'.pdf'
-    fout = toplot+'_z'+str(red)+'_'+plane+'_w'+str(width)+suffix+'.pdf'
-    print("saving figure to "+fout)
-    savefig(fout, bbox_inches='tight')
+    #fout = toplot+'_z'+str(red)+'_'+plane+'_w'+str(width)+suffix+'.pdf'
+    #print("saving figure to "+fout)
+    #savefig(fout, bbox_inches='tight')
     plt.show()
     close(fig)
 
@@ -336,8 +336,8 @@ if diff:
         ax2.set_xlabel(r'$Y\,  [Mpc]$',fontsize=18)
     ax2.set_ylabel(r'$Z\, [Mpc]$',fontsize=18)
     
-    min_q = -1. #amin(d1md2)
-    max_q = 1. #amax(d1md2)
+    min_q = -2. #amin(d1md2)
+    max_q = 2. #amax(d1md2)
    
     scale = 'linear'
     if scale=='linear':

@@ -200,7 +200,7 @@ mass = mass*Msuningram/mA
 
 # --- LOOP OVER LOS AND HALOS ---#
 #final table of medians and std_dev that will be filled for each 2D pixel (along each LOS) for each halo
-med_in_pix, mean_in_pix, std_in_pix = [], [], []
+med_in_pix, mean_in_pix, mean_sq_in_pix, std_in_pix = [], [], [], []
 
 for los in LOS:
     il = LOS.index(los)
@@ -255,8 +255,10 @@ for los in LOS:
         #compute volume-weighted median density and std dev for all particles with same ij (i.e. in each projected cell) and add to table
         for ic in index_ij:
             med_in_pix.append(weighted_median(densin[ic],volume[ic]))
-            mean = average(densin[ic], weights=volume[ic])
+            mean    = average(densin[ic], weights=volume[ic])
+            mean_sq = average(densin[ic]**2.,weights=volume[ic])
             mean_in_pix.append(mean)
+            mean_sq_in_pix.append(mean_sq)
             # Fast and numerically precise:
             std_in_pix.append(average((densin[ic]-mean)**2, weights=volume[ic]))
         
@@ -264,6 +266,6 @@ for los in LOS:
 
     del newpos, newHpos, dist, inorout
 
-fout = path+'medians_stds_Mlow_'+str(mmin)+'_Mhigh_'+str(mmin+0.5)+'_R_'+str(Rs[0])+'-'+str(Rs[1])+'.npz'
+fout = path+'medians_means_meanssq_stds_Mlow_'+str(mmin)+'_Mhigh_'+str(mmin+0.5)+'_R_'+str(Rs[0])+'-'+str(Rs[1])+'.npz'
 print("Saving medians and stds to "+fout)
-savez(fout,median=med_in_pix,mean=mean_in_pix,std=std_in_pix)
+savez(fout,median=med_in_pix,mean=mean_in_pix,std=std_in_pix,means_sq=mean_sq_in_pix)
