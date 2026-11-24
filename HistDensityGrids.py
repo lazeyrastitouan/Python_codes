@@ -43,6 +43,7 @@ Hfile_ave = np.load("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/HE
 Dfile_std = np.load("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/gizmo/DensityCGM/z3p5/zoom1p5/medians_stds_Mlow_12.0_Mhigh_12.5.npz")['std']
 Dfile_med = np.load("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/gizmo/DensityCGM/z3p5/zoom1p5/medians_stds_Mlow_12.0_Mhigh_12.5.npz")['median']
 Dfile_ave = np.load("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/gizmo/DensityCGM/z3p5/zoom1p5/medians_stds_Mlow_12.0_Mhigh_12.5.npz")['mean']
+Dfile_asq = np.load("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/gizmo/DensityCGM/z3p5/zoom1p5/medians_means_meanssq_stds_Mlow_12.0_Mhigh_12.5.npz")['mean_sq']
 Cfile_std = np.load("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/COLIBRE/L0050N0752/z3p5/medians_stds_Mlow_12.0_Mhigh_12.5.npz")['std']
 Cfile_med = np.load("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/COLIBRE/L0050N0752/z3p5/medians_stds_Mlow_12.0_Mhigh_12.5.npz")['median']
 Cfile_ave = np.load("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/COLIBRE/L0050N0752/z3p5/medians_stds_Mlow_12.0_Mhigh_12.5.npz")['mean']
@@ -59,6 +60,7 @@ hist_ave_hlo  = np.histogram(np.log(Hfile_ave),density=True,bins=edges,range=(mi
 hist_med_dlya = np.histogram(np.log(Dfile_med),density=True,bins=edges,range=(mind,maxd))
 hist_std_dlya = np.histogram(np.log(Dfile_std),density=True,bins=100)
 hist_ave_dlya = np.histogram(np.log(Dfile_ave),density=True,bins=edges,range=(mind,maxd))
+hist_asq_dlya = np.hostpgram(np.log(Dfile_asq),density=True,bins=2*edges,range=(2*mind,2*maxd))
 hist_med_col  = np.histogram(np.log(Cfile_med),density=True,bins=edges,range=(mind,maxd))
 hist_std_col  = np.histogram(np.log(Cfile_std),density=True,bins=100)
 hist_ave_col  = np.histogram(np.log(Cfile_ave),density=True,bins=edges,range=(mind,maxd))
@@ -84,6 +86,7 @@ if saveHist:
 	np.savez("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/HELLO/CDM/Hist_VolumeWeightedMedians_2D_100-200ckpc_z3p5_Mlow_12.0_Mhigh_12.5",density=hist_med_hlo[1]/np.log(10.),count=hist_med_hlo[0])
 	np.savez("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/COLIBRE/L0050N0752/z3p5/Hist_VolumeWeightedMedians_2D_100-200ckpc_z3p5_Mlow_12.0_Mhigh_12.5",density=hist_med_col[1]/np.log(10.),count=hist_med_col[0])
 	np.savez("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/gizmo/DensityCGM/z3p5/zoom1p5/Hist_VolumeWeightedMedians_2D_100-200ckpc_z3p5_Mlow_12.0_Mhigh_12.5",density=hist_med_dlya[1]/np.log(10.),count=hist_med_dlya[0])
+    np.savez("/Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/gizmo/DensityCGM/z3p5/zoom1p5/Hist_VolumeWeightedMeans_2D_100-200ckpc_z3p5_Mlow_12.0_Mhigh_12.5",density=hist_ave_dlya[1]/np.log(10.),count=hist_ave_dlya[0],density_sq=hist_asq_dlya[1]/np.log(10.),count_sq=hist_asq_dlya[0])
 	print("Saved dalya to /Users/titouanlazeyras/Desktop/BICOCCA/HydroSims_CDM_WDM/gizmo/DensityCGM/z3p5/zoom1p5/Hist_VolumeWeightedMedians_2D_100-200ckpc_z3p5_Mlow_12.0_Mhigh_12.5.npz")
 
 print(np.average(midbins,weights=hist_med_dlya[0])/np.log(10.))
